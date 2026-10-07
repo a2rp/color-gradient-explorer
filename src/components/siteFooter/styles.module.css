@@ -1,0 +1,130 @@
+.siteFooter {
+    margin-top: 15px;
+    background: var(--ink);
+    color: #fffefa;
+
+    .inner {
+        width: min(1320px, calc(100% - 56px));
+        margin: 0 auto;
+        padding: 26px 0 29px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+    }
+
+    .leftSide {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 13px;
+    }
+
+    .logoLink {
+        min-width: 76px;
+        min-height: 39px;
+        padding: 4px 6px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 8px;
+        background: #fffefa;
+        transition:
+            border-color 150ms ease,
+            box-shadow 150ms ease;
+
+        img {
+            width: 62px;
+            height: auto;
+        }
+
+        &:hover,
+        &:focus-visible {
+            border-color: var(--mint);
+            box-shadow: 0 0 0 3px rgba(185, 237, 219, 0.16);
+            outline: none;
+        }
+    }
+
+    .copyright {
+        max-width: 200px;
+        color: rgba(255, 254, 250, 0.7);
+        font-size: 10px;
+        line-height: 1.55;
+
+        a {
+            color: #fffefa;
+            font-weight: 750;
+        }
+    }
+
+    .footerLinks {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 5px;
+    }
+
+    .footerLink {
+        min-height: 32px;
+        padding: 0 8px;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        border: 1px solid transparent;
+        border-radius: 7px;
+        color: rgba(255, 254, 250, 0.76);
+        font-size: 10px;
+        font-weight: 700;
+        transition:
+            border-color 150ms ease,
+            box-shadow 150ms ease;
+
+        svg {
+            width: 12px;
+            height: 12px;
+        }
+
+        &:hover,
+        &:focus-visible {
+            border-color: rgba(185, 237, 219, 0.44);
+            box-shadow: 0 0 0 3px rgba(185, 237, 219, 0.12);
+            outline: none;
+        }
+    }
+
+    @media (max-width: 1080px) {
+        .inner {
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 17px;
+        }
+
+        .footerLinks {
+            justify-content: flex-start;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .inner {
+            width: calc(100% - 32px);
+            padding: 22px 0 25px;
+        }
+
+        .leftSide {
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .footerLinks {
+            gap: 3px;
+        }
+
+        .footerLink {
+            padding: 0 7px;
+        }
+    }
+}
