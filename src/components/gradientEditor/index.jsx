@@ -1,9 +1,9 @@
-import { FiCopy, FiMinus, FiPlus, FiRotateCcw } from "react-icons/fi";
+import { FiBookmark, FiCopy, FiMinus, FiPlus, FiRotateCcw } from "react-icons/fi";
 import { gradientPresets, startingGradient } from "../../data/gradientPresets.js";
 import { getGradientCss, getGradientRule } from "../../utils/gradientCss.js";
 import styles from "./styles.module.css";
 
-const GradientEditor = ({ gradient, onChange, onStatus }) => {
+const GradientEditor = ({ gradient, onChange, onStatus, onSave }) => {
     const orderedStops = [...gradient.stops].sort(
         (first, second) => first.position - second.position,
     );
@@ -95,14 +95,24 @@ const GradientEditor = ({ gradient, onChange, onStatus }) => {
                     <h1 id="studio-title">Build a gradient.</h1>
                     <p>Adjust the colors and direction, then copy the CSS into your project.</p>
                 </div>
-                <button
-                    className={styles.resetButton}
-                    type="button"
-                    onClick={resetGradient}
-                >
-                    <FiRotateCcw aria-hidden="true" />
-                    Reset
-                </button>
+                <div className={styles.headingActions}>
+                    <button
+                        className={styles.saveButton}
+                        type="button"
+                        onClick={onSave}
+                    >
+                        <FiBookmark aria-hidden="true" />
+                        Save gradient
+                    </button>
+                    <button
+                        className={styles.resetButton}
+                        type="button"
+                        onClick={resetGradient}
+                    >
+                        <FiRotateCcw aria-hidden="true" />
+                        Reset
+                    </button>
+                </div>
             </div>
 
             <div className={styles.editorGrid}>
@@ -204,7 +214,7 @@ const GradientEditor = ({ gradient, onChange, onStatus }) => {
                     {gradient.type === "linear" && (
                         <label className={styles.angleControl} htmlFor="gradient-angle">
                             <span>Angle</span>
-                            <output>{gradient.angle}°</output>
+                            <output>{gradient.angle}Â°</output>
                             <input
                                 id="gradient-angle"
                                 type="range"

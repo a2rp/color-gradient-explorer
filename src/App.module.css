@@ -17,32 +17,75 @@
         font-weight: 700;
     }
 
-    .savedPlaceholder,
-    .guidePlaceholder {
-        margin-top: 40px;
-        padding: 30px;
-        border: 1px solid var(--line);
-        border-radius: 16px;
-        background: var(--paper);
+    .guideSection {
+        margin-top: 54px;
+        padding: 31px;
+        border: 1px solid #dce8e0;
+        border-radius: 17px;
+        background: var(--soft-mint);
+    }
+
+    .guideHeading {
+        max-width: 650px;
 
         h2 {
             color: var(--ink);
-            font-size: 26px;
-            font-weight: 800;
-            letter-spacing: -0.04em;
+            font-size: clamp(27px, 4vw, 38px);
+            font-weight: 820;
+            letter-spacing: -0.05em;
+            line-height: 1.08;
         }
 
         p {
-            margin-top: 7px;
+            margin-top: 8px;
             color: var(--muted);
             font-size: 14px;
         }
     }
 
-    .guidePlaceholder {
-        margin-top: 18px;
-        border-color: transparent;
-        background: var(--soft-mint);
+    .guideSteps {
+        margin-top: 25px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 11px;
+    }
+
+    .guideStep {
+        min-height: 150px;
+        padding: 18px;
+        border: 1px solid rgba(69, 51, 153, 0.12);
+        border-radius: 12px;
+        background: rgba(255, 254, 250, 0.68);
+
+        h3 {
+            margin-top: 15px;
+            color: var(--ink);
+            font-size: 14px;
+            font-weight: 800;
+        }
+
+        p {
+            margin-top: 5px;
+            color: var(--muted);
+            font-size: 12px;
+        }
+    }
+
+    .stepNumber {
+        color: var(--violet);
+        font-size: 11px;
+        font-weight: 850;
+        letter-spacing: 0.08em;
+    }
+
+    @media (max-width: 900px) {
+        .guideSteps {
+            grid-template-columns: 1fr;
+        }
+
+        .guideStep {
+            min-height: unset;
+        }
     }
 
     @media (max-width: 600px) {
@@ -50,6 +93,11 @@
             width: calc(100% - 32px);
             margin-top: 68px;
             padding: 25px 0 64px;
+        }
+
+        .guideSection {
+            margin-top: 36px;
+            padding: 20px;
         }
     }
 }

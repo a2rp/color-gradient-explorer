@@ -23,6 +23,7 @@
     }
 
     .resetButton,
+    .saveButton,
     .addStopButton,
     .copyButton {
         min-height: 40px;
@@ -59,6 +60,23 @@
         }
     }
 
+    .headingActions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .saveButton {
+        border-color: var(--violet);
+        background: var(--violet);
+        color: #fff;
+
+        &:hover,
+        &:focus-visible {
+            border-color: var(--violet-dark);
+            box-shadow: 0 0 0 3px rgba(101, 80, 200, 0.15);
+        }
+    }
     .editorGrid {
         display: grid;
         grid-template-columns: minmax(0, 1.35fr) minmax(355px, 0.8fr);
