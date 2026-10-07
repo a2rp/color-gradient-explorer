@@ -42,7 +42,9 @@ const SiteHeader = () => {
 
                 <nav
                     className={
-                        menuOpen ? styles.mainNavigationOpen : styles.mainNavigation
+                        menuOpen
+                            ? styles.mainNavigationOpen
+                            : styles.mainNavigation
                     }
                     aria-label="Main navigation"
                     id="main-navigation"

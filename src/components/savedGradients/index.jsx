@@ -49,7 +49,10 @@ const SavedGradients = ({ gradients, onLoad, onDelete, onCopy }) => {
             if (event.shiftKey && document.activeElement === firstButton) {
                 event.preventDefault();
                 lastButton.focus();
-            } else if (!event.shiftKey && document.activeElement === lastButton) {
+            } else if (
+                !event.shiftKey &&
+                document.activeElement === lastButton
+            ) {
                 event.preventDefault();
                 firstButton.focus();
             }
@@ -88,13 +91,18 @@ const SavedGradients = ({ gradients, onLoad, onDelete, onCopy }) => {
                         +
                     </div>
                     <h3>No gradients saved yet</h3>
-                    <p>Name a blend above and save it to start your collection.</p>
+                    <p>
+                        Name a blend above and save it to start your collection.
+                    </p>
                     <a href="#studio">Go to the editor</a>
                 </div>
             ) : (
                 <div className={styles.gradientGrid}>
                     {gradients.map((gradient) => (
-                        <article className={styles.gradientCard} key={gradient.id}>
+                        <article
+                            className={styles.gradientCard}
+                            key={gradient.id}
+                        >
                             <div
                                 className={styles.gradientSample}
                                 style={{ background: getGradientCss(gradient) }}
@@ -118,12 +126,17 @@ const SavedGradients = ({ gradients, onLoad, onDelete, onCopy }) => {
                                         className={styles.deleteButton}
                                         type="button"
                                         aria-label={"Delete " + gradient.name}
-                                        onClick={(event) => openDialog(gradient, event)}
+                                        onClick={(event) =>
+                                            openDialog(gradient, event)
+                                        }
                                     >
                                         <FiTrash2 aria-hidden="true" />
                                     </button>
                                 </div>
-                                <div className={styles.colorList} aria-label="Gradient colors">
+                                <div
+                                    className={styles.colorList}
+                                    aria-label="Gradient colors"
+                                >
                                     {gradient.stops.map((stop) => (
                                         <span
                                             key={stop.id}
@@ -176,8 +189,8 @@ const SavedGradients = ({ gradients, onLoad, onDelete, onCopy }) => {
                         </div>
                         <h2 id="delete-title">Delete this gradient?</h2>
                         <p id="delete-description">
-                            <strong>{gradientToDelete.name}</strong> will be removed
-                            from your saved gradients in this browser.
+                            <strong>{gradientToDelete.name}</strong> will be
+                            removed from your saved gradients in this browser.
                         </p>
                         <div className={styles.dialogActions}>
                             <button

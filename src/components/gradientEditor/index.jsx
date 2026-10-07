@@ -1,5 +1,14 @@
-import { FiBookmark, FiCopy, FiMinus, FiPlus, FiRotateCcw } from "react-icons/fi";
-import { gradientPresets, startingGradient } from "../../data/gradientPresets.js";
+import {
+    FiBookmark,
+    FiCopy,
+    FiMinus,
+    FiPlus,
+    FiRotateCcw,
+} from "react-icons/fi";
+import {
+    gradientPresets,
+    startingGradient,
+} from "../../data/gradientPresets.js";
 import { getGradientCss, getGradientRule } from "../../utils/gradientCss.js";
 import styles from "./styles.module.css";
 
@@ -43,7 +52,9 @@ const GradientEditor = ({ gradient, onChange, onStatus, onSave }) => {
                 {
                     id: "stop-" + Date.now(),
                     color: "#F7B84B",
-                    position: Math.round((largestGap.start + largestGap.end) / 2),
+                    position: Math.round(
+                        (largestGap.start + largestGap.end) / 2,
+                    ),
                 },
             ],
         });
@@ -80,7 +91,9 @@ const GradientEditor = ({ gradient, onChange, onStatus, onSave }) => {
             await navigator.clipboard.writeText(gradientRule);
             onStatus("CSS copied to clipboard.");
         } catch {
-            onStatus("Clipboard access is unavailable. Select and copy the CSS below.");
+            onStatus(
+                "Clipboard access is unavailable. Select and copy the CSS below.",
+            );
         }
     };
 
@@ -93,7 +106,10 @@ const GradientEditor = ({ gradient, onChange, onStatus, onSave }) => {
             <div className={styles.editorHeading}>
                 <div>
                     <h1 id="studio-title">Build a gradient.</h1>
-                    <p>Adjust the colors and direction, then copy the CSS into your project.</p>
+                    <p>
+                        Adjust the colors and direction, then copy the CSS into
+                        your project.
+                    </p>
                 </div>
                 <div className={styles.headingActions}>
                     <button
@@ -128,20 +144,37 @@ const GradientEditor = ({ gradient, onChange, onStatus, onSave }) => {
                         </span>
                     </div>
 
-                    <div className={styles.previewCanvas} style={{ background: gradientCss }}>
-                        <div className={styles.previewOrbOne} aria-hidden="true" />
-                        <div className={styles.previewOrbTwo} aria-hidden="true" />
+                    <div
+                        className={styles.previewCanvas}
+                        style={{ background: gradientCss }}
+                    >
+                        <div
+                            className={styles.previewOrbOne}
+                            aria-hidden="true"
+                        />
+                        <div
+                            className={styles.previewOrbTwo}
+                            aria-hidden="true"
+                        />
                         <div className={styles.previewContent}>
-                            <span className={styles.previewLabel}>Prism / color study</span>
+                            <span className={styles.previewLabel}>
+                                Prism / color study
+                            </span>
                             <h2>Color makes a mood.</h2>
                             <p>Try your blend on a simple sample card.</p>
                             <div className={styles.previewDetails}>
                                 <span>Fresh ideas</span>
-                                <span className={styles.previewDot} aria-hidden="true" />
+                                <span
+                                    className={styles.previewDot}
+                                    aria-hidden="true"
+                                />
                                 <span>Good energy</span>
                             </div>
                         </div>
-                        <div className={styles.previewNumber} aria-hidden="true">
+                        <div
+                            className={styles.previewNumber}
+                            aria-hidden="true"
+                        >
                             01
                         </div>
                     </div>
@@ -160,20 +193,29 @@ const GradientEditor = ({ gradient, onChange, onStatus, onSave }) => {
                                     type="button"
                                     key={preset.id}
                                     onClick={() => applyPreset(preset)}
-                                    aria-label={"Use the " + preset.name + " gradient"}
+                                    aria-label={
+                                        "Use the " + preset.name + " gradient"
+                                    }
                                 >
                                     <span
                                         className={styles.presetSwatch}
-                                        style={{ background: getGradientCss(preset) }}
+                                        style={{
+                                            background: getGradientCss(preset),
+                                        }}
                                     />
-                                    <span className={styles.presetName}>{preset.name}</span>
+                                    <span className={styles.presetName}>
+                                        {preset.name}
+                                    </span>
                                 </button>
                             ))}
                         </div>
                     </div>
                 </div>
 
-                <aside className={styles.controlPanel} aria-label="Gradient controls">
+                <aside
+                    className={styles.controlPanel}
+                    aria-label="Gradient controls"
+                >
                     <div className={styles.panelHeading}>
                         <h2>Shape the blend</h2>
                         <p>Small adjustments can change the whole feel.</p>
@@ -185,26 +227,46 @@ const GradientEditor = ({ gradient, onChange, onStatus, onSave }) => {
                             type="text"
                             value={gradient.name}
                             maxLength={36}
-                            onChange={(event) => updateGradient({ name: event.target.value })}
+                            onChange={(event) =>
+                                updateGradient({ name: event.target.value })
+                            }
                         />
                     </label>
 
                     <div className={styles.controlGroup}>
-                        <span className={styles.controlLabel}>Gradient type</span>
-                        <div className={styles.typeButtons} role="group" aria-label="Gradient type">
+                        <span className={styles.controlLabel}>
+                            Gradient type
+                        </span>
+                        <div
+                            className={styles.typeButtons}
+                            role="group"
+                            aria-label="Gradient type"
+                        >
                             <button
-                                className={gradient.type === "linear" ? styles.activeType : ""}
+                                className={
+                                    gradient.type === "linear"
+                                        ? styles.activeType
+                                        : ""
+                                }
                                 type="button"
                                 aria-pressed={gradient.type === "linear"}
-                                onClick={() => updateGradient({ type: "linear" })}
+                                onClick={() =>
+                                    updateGradient({ type: "linear" })
+                                }
                             >
                                 Linear
                             </button>
                             <button
-                                className={gradient.type === "radial" ? styles.activeType : ""}
+                                className={
+                                    gradient.type === "radial"
+                                        ? styles.activeType
+                                        : ""
+                                }
                                 type="button"
                                 aria-pressed={gradient.type === "radial"}
-                                onClick={() => updateGradient({ type: "radial" })}
+                                onClick={() =>
+                                    updateGradient({ type: "radial" })
+                                }
                             >
                                 Radial
                             </button>
@@ -212,9 +274,12 @@ const GradientEditor = ({ gradient, onChange, onStatus, onSave }) => {
                     </div>
 
                     {gradient.type === "linear" && (
-                        <label className={styles.angleControl} htmlFor="gradient-angle">
+                        <label
+                            className={styles.angleControl}
+                            htmlFor="gradient-angle"
+                        >
                             <span>Angle</span>
-                            <output>{gradient.angle}Â°</output>
+                            <output>{gradient.angle}°</output>
                             <input
                                 id="gradient-angle"
                                 type="range"
@@ -222,7 +287,9 @@ const GradientEditor = ({ gradient, onChange, onStatus, onSave }) => {
                                 max="360"
                                 value={gradient.angle}
                                 onChange={(event) =>
-                                    updateGradient({ angle: Number(event.target.value) })
+                                    updateGradient({
+                                        angle: Number(event.target.value),
+                                    })
                                 }
                             />
                         </label>
@@ -262,14 +329,21 @@ const GradientEditor = ({ gradient, onChange, onStatus, onSave }) => {
                                                     color: event.target.value.toUpperCase(),
                                                 })
                                             }
-                                            aria-label={"Color for stop " + (index + 1)}
+                                            aria-label={
+                                                "Color for stop " + (index + 1)
+                                            }
                                         />
                                         <button
                                             className={styles.removeStopButton}
                                             type="button"
                                             onClick={() => removeStop(stop.id)}
-                                            disabled={gradient.stops.length <= 2}
-                                            aria-label={"Remove color stop " + (index + 1)}
+                                            disabled={
+                                                gradient.stops.length <= 2
+                                            }
+                                            aria-label={
+                                                "Remove color stop " +
+                                                (index + 1)
+                                            }
                                         >
                                             <FiMinus aria-hidden="true" />
                                         </button>
@@ -283,11 +357,14 @@ const GradientEditor = ({ gradient, onChange, onStatus, onSave }) => {
                                         value={stop.position}
                                         onChange={(event) =>
                                             updateStop(stop.id, {
-                                                position: Number(event.target.value),
+                                                position: Number(
+                                                    event.target.value,
+                                                ),
                                             })
                                         }
                                         aria-label={
-                                            "Position for color stop " + (index + 1)
+                                            "Position for color stop " +
+                                            (index + 1)
                                         }
                                     />
                                     <output>{stop.position}%</output>

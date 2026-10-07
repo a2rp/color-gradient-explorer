@@ -57,7 +57,9 @@ const App = () => {
             stops: savedGradient.stops.map((stop) => ({ ...stop })),
         });
         setStatusMessage(savedGradient.name + " is ready in the editor.");
-        document.getElementById("studio")?.scrollIntoView({ behavior: "smooth" });
+        document
+            .getElementById("studio")
+            ?.scrollIntoView({ behavior: "smooth" });
     };
 
     const deleteGradient = (gradientId) => {
@@ -80,7 +82,9 @@ const App = () => {
 
     const copyGradient = async (gradientToCopy) => {
         try {
-            await navigator.clipboard.writeText(getGradientRule(gradientToCopy));
+            await navigator.clipboard.writeText(
+                getGradientRule(gradientToCopy),
+            );
             setStatusMessage("CSS copied to clipboard.");
         } catch {
             setStatusMessage(
@@ -99,7 +103,11 @@ const App = () => {
                     onStatus={setStatusMessage}
                     onSave={saveGradient}
                 />
-                <p className={styles.statusMessage} role="status" aria-live="polite">
+                <p
+                    className={styles.statusMessage}
+                    role="status"
+                    aria-live="polite"
+                >
                     {statusMessage}
                 </p>
                 <SavedGradients
@@ -114,24 +122,38 @@ const App = () => {
                     aria-labelledby="guide-title"
                 >
                     <div className={styles.guideHeading}>
-                        <h2 id="guide-title">Three steps to a color you love.</h2>
-                        <p>Go from a first impression to a gradient ready for your design.</p>
+                        <h2 id="guide-title">
+                            Three steps to a color you love.
+                        </h2>
+                        <p>
+                            Go from a first impression to a gradient ready for
+                            your design.
+                        </p>
                     </div>
                     <div className={styles.guideSteps}>
                         <article className={styles.guideStep}>
                             <span className={styles.stepNumber}>01</span>
                             <h3>Choose a starting blend</h3>
-                            <p>Pick a preset that is close to the color mood you want.</p>
+                            <p>
+                                Pick a preset that is close to the color mood
+                                you want.
+                            </p>
                         </article>
                         <article className={styles.guideStep}>
                             <span className={styles.stepNumber}>02</span>
                             <h3>Adjust the color stops</h3>
-                            <p>Change colors, move each stop, and tune the angle.</p>
+                            <p>
+                                Change colors, move each stop, and tune the
+                                angle.
+                            </p>
                         </article>
                         <article className={styles.guideStep}>
                             <span className={styles.stepNumber}>03</span>
                             <h3>Copy or save your work</h3>
-                            <p>Keep a gradient in this browser or copy its CSS rule.</p>
+                            <p>
+                                Keep a gradient in this browser or copy its CSS
+                                rule.
+                            </p>
                         </article>
                     </div>
                 </section>

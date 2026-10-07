@@ -32,7 +32,12 @@
         place-items: center;
         border: 1px solid rgba(255, 255, 255, 0.25);
         border-radius: 12px;
-        background: linear-gradient(135deg, var(--coral), #9a79fb 52%, var(--mint));
+        background: linear-gradient(
+            135deg,
+            var(--coral),
+            #9a79fb 52%,
+            var(--mint)
+        );
         color: var(--ink);
 
         svg {

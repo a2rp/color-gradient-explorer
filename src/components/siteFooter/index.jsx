@@ -72,7 +72,11 @@ const SiteFooter = () => {
                     </a>
                     <p className={styles.copyright}>
                         © {new Date().getFullYear()}{" "}
-                        <a href="https://github.com/a2rp" target="_blank" rel="noreferrer">
+                        <a
+                            href="https://github.com/a2rp"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
                             Ashish Ranjan
                         </a>
                         . All rights reserved.
@@ -85,8 +89,16 @@ const SiteFooter = () => {
                             className={styles.footerLink}
                             href={href}
                             key={label}
-                            target={href.startsWith("mailto:") ? undefined : "_blank"}
-                            rel={href.startsWith("mailto:") ? undefined : "noreferrer"}
+                            target={
+                                href.startsWith("mailto:")
+                                    ? undefined
+                                    : "_blank"
+                            }
+                            rel={
+                                href.startsWith("mailto:")
+                                    ? undefined
+                                    : "noreferrer"
+                            }
                         >
                             <Icon aria-hidden="true" />
                             <span>{label}</span>
