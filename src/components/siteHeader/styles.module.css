@@ -1,0 +1,210 @@
+.siteHeader {
+    position: fixed;
+    z-index: 30;
+    inset: 0 0 auto;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+    background: var(--ink);
+    color: #fffefa;
+    box-shadow: 0 8px 24px rgba(37, 31, 72, 0.14);
+
+    .inner {
+        position: relative;
+        width: min(1320px, calc(100% - 56px));
+        min-height: 76px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+    }
+
+    .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        flex: 0 0 auto;
+    }
+
+    .brandMark {
+        width: 38px;
+        height: 38px;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 12px;
+        background: linear-gradient(135deg, var(--coral), #9a79fb 52%, var(--mint));
+        color: var(--ink);
+
+        svg {
+            width: 19px;
+            height: 19px;
+        }
+    }
+
+    .brandName {
+        font-size: 20px;
+        font-weight: 850;
+        letter-spacing: -0.045em;
+    }
+
+    .mainNavigation,
+    .mainNavigationOpen {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+
+        a {
+            min-height: 42px;
+            padding: 0 14px;
+            display: inline-flex;
+            align-items: center;
+            border: 1px solid transparent;
+            border-radius: 9px;
+            color: rgba(255, 254, 250, 0.76);
+            font-size: 13px;
+            font-weight: 700;
+            transition:
+                border-color 160ms ease,
+                box-shadow 160ms ease;
+
+            &:hover,
+            &:focus-visible {
+                border-color: rgba(185, 237, 219, 0.52);
+                box-shadow: 0 0 0 3px rgba(185, 237, 219, 0.12);
+                outline: none;
+            }
+        }
+    }
+
+    .headerActions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .repositoryLink {
+        min-height: 41px;
+        padding: 0 13px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.32);
+        border-radius: 9px;
+        color: #fffefa;
+        font-size: 12px;
+        font-weight: 750;
+        transition:
+            border-color 160ms ease,
+            box-shadow 160ms ease;
+
+        svg {
+            width: 15px;
+            height: 15px;
+        }
+
+        &:hover,
+        &:focus-visible {
+            border-color: var(--mint);
+            box-shadow: 0 0 0 3px rgba(185, 237, 219, 0.14);
+            outline: none;
+        }
+    }
+
+    .menuButton {
+        width: 40px;
+        height: 40px;
+        display: none;
+        place-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.32);
+        border-radius: 9px;
+        background: transparent;
+        color: #fffefa;
+
+        svg {
+            width: 18px;
+            height: 18px;
+        }
+    }
+
+    @media (max-width: 700px) {
+        .inner {
+            width: calc(100% - 32px);
+            min-height: 68px;
+            gap: 10px;
+        }
+
+        .mainNavigation,
+        .mainNavigationOpen {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            left: 0;
+            padding: 9px;
+            display: none;
+            align-items: stretch;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 13px;
+            background: var(--ink);
+            box-shadow: var(--shadow);
+
+            a {
+                min-height: 44px;
+                padding: 0 12px;
+            }
+        }
+
+        .mainNavigationOpen {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .headerActions {
+            gap: 7px;
+        }
+
+        .repositoryLink {
+            min-height: 39px;
+            padding: 0 10px;
+            font-size: 11px;
+        }
+
+        .menuButton {
+            display: grid;
+        }
+    }
+
+    @media (max-width: 390px) {
+        .inner {
+            width: calc(100% - 22px);
+        }
+
+        .brand {
+            gap: 7px;
+        }
+
+        .brandMark {
+            width: 34px;
+            height: 34px;
+        }
+
+        .brandName {
+            font-size: 18px;
+        }
+
+        .headerActions {
+            gap: 5px;
+        }
+
+        .repositoryLink {
+            gap: 5px;
+            padding: 0 8px;
+            font-size: 10px;
+        }
+
+        .menuButton {
+            width: 36px;
+            height: 36px;
+        }
+    }
+}

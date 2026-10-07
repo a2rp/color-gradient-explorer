@@ -1,13 +1,12 @@
-﻿.appShell {
+.appShell {
     min-height: 100vh;
     background: var(--page);
     color: var(--ink);
 
     .pageContent {
         width: min(1320px, calc(100% - 56px));
-        min-height: 100vh;
-        margin: 0 auto;
-        padding: 80px 0;
+        margin: 76px auto 0;
+        padding: 54px 0 90px;
     }
 
     .label {
@@ -16,6 +15,14 @@
         font-weight: 800;
         letter-spacing: 0.12em;
         text-transform: uppercase;
+    }
+
+    .intro {
+        min-height: 380px;
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+        align-items: center;
+        gap: 48px;
     }
 
     h1 {
@@ -27,15 +34,54 @@
     }
 
     .description {
+        max-width: 540px;
         margin-top: 18px;
         color: var(--muted);
         font-size: 18px;
     }
 
+    .previewPlaceholder {
+        min-height: 310px;
+        border: 1px solid rgba(36, 33, 55, 0.12);
+        border-radius: 22px;
+        background: linear-gradient(125deg, #fa8466 0%, #a982ee 50%, #b9eddb 100%);
+        box-shadow: var(--shadow);
+    }
+
+    .placeholderSection {
+        min-height: 180px;
+        margin-top: 30px;
+        padding: 28px 0;
+        border-top: 1px solid var(--line);
+
+        h2 {
+            font-size: 28px;
+            font-weight: 750;
+            letter-spacing: -0.04em;
+        }
+    }
+
+    @media (max-width: 900px) {
+        .intro {
+            grid-template-columns: minmax(0, 1fr) minmax(260px, 0.85fr);
+            gap: 28px;
+        }
+    }
+
     @media (max-width: 600px) {
         .pageContent {
             width: calc(100% - 32px);
-            padding: 48px 0;
+            margin-top: 68px;
+            padding: 25px 0 64px;
+        }
+
+        .intro {
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .previewPlaceholder {
+            min-height: 240px;
         }
     }
 }
