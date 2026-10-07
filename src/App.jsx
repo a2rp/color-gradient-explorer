@@ -3,6 +3,7 @@ import GradientEditor from "./components/gradientEditor/index.jsx";
 import SavedGradients from "./components/savedGradients/index.jsx";
 import SiteHeader from "./components/siteHeader/index.jsx";
 import SiteFooter from "./components/siteFooter/index.jsx";
+import BackToTop from "./components/backToTop/index.jsx";
 import { startingGradient } from "./data/gradientPresets.js";
 import { getGradientRule } from "./utils/gradientCss.js";
 import styles from "./App.module.css";
@@ -136,6 +137,7 @@ const App = () => {
                 </section>
             </main>
             <SiteFooter />
+            <BackToTop />
         </div>
     );
 };
