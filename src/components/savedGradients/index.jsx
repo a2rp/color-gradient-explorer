@@ -32,6 +32,7 @@ const SavedGradients = ({ gradients, onLoad, onDelete, onCopy }) => {
 
         const handleKeys = (event) => {
             if (event.key === "Escape") {
+                event.preventDefault();
                 closeDialog();
                 return;
             }
@@ -45,8 +46,17 @@ const SavedGradients = ({ gradients, onLoad, onDelete, onCopy }) => {
 
             const firstButton = buttons[0];
             const lastButton = buttons[buttons.length - 1];
+            const focusIsOutsideDialog = !dialogRef.current?.contains(
+                document.activeElement,
+            );
 
-            if (event.shiftKey && document.activeElement === firstButton) {
+            if (focusIsOutsideDialog) {
+                event.preventDefault();
+                (event.shiftKey ? lastButton : firstButton).focus();
+            } else if (
+                event.shiftKey &&
+                document.activeElement === firstButton
+            ) {
                 event.preventDefault();
                 lastButton.focus();
             } else if (
@@ -58,8 +68,8 @@ const SavedGradients = ({ gradients, onLoad, onDelete, onCopy }) => {
             }
         };
 
-        document.addEventListener("keydown", handleKeys);
-        return () => document.removeEventListener("keydown", handleKeys);
+        document.addEventListener("keydown", handleKeys, true);
+        return () => document.removeEventListener("keydown", handleKeys, true);
     }, [gradientToDelete]);
 
     const openDialog = (gradient, event) => {
